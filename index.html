@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Game Hub</title>
+        <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+
+        <!-- ...........background matrix.................. -->
+
+        <div class="matrix" id="matrix"
+            style="width: 100%; height: 100%;">
+        </div>
+
+        <!-- ...........background matrix end.................. -->
+
+        <div class="mainpage550">
+            <div class="inner-page">
+                <div class="row" onclick="window.location.href='login.html'">
+                    <div class="col-12">
+                        <button class="glow-button">Join Telegram</button>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div class="search-bar">
+                            <input type="text" class="form-control"
+                                placeholder="Search game by name...">
+                            <i class="fa fa-search srchicon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-list">
+                    <div class="game-item" data-toggle="modal"
+                        data-target="#exampleModalCenter">
+                        <a href="#" class="text-decoration-none">
+                            <img src="img/dhan365.png" alt="55CLUB Logo"
+                                class="game-logo">
+                        </a>
+                        <div class="game-title">91CLUB</div>
+
+                    </div>
+                    <div class="game-item" data-toggle="modal"
+                        data-target="#exampleModalCenter">
+                        <a href="#" class="text-decoration-none">
+                            <img src="img/dhan365.png" alt="55CLUB Logo"
+                                class="game-logo">
+                        </a>
+                        <div class="game-title">91CLUB</div>
+
+                    </div>
+                </div>
+                <div class="game-list">
+                    <div class="game-item">
+                        <a href="#" class="text-decoration-none">
+                            <img src="img/dhan365.png" alt="55CLUB Logo"
+                                class="game-logo">
+                        </a>
+                        <div class="game-title">91CLUB</div>
+
+                    </div>
+                    <div class="game-item">
+                        <a href="#" class="text-decoration-none">
+                            <img src="img/dhan365.png" alt="55CLUB Logo"
+                                class="game-logo">
+                        </a>
+                        <div class="game-title">91CLUB</div>
+
+                    </div>
+                </div>
+                <div class="game-list">
+                    <div class="game-item">
+                        <a href="#" class="text-decoration-none">
+                            <img src="img/dhan365.png" alt="55CLUB Logo"
+                                class="game-logo">
+                        </a>
+                        <div class="game-title">91CLUB</div>
+
+                    </div>
+                    <div class="game-item">
+                        <a href="#" class="text-decoration-none">
+                            <img src="img/dhan365.png" alt="55CLUB Logo"
+                                class="game-logo">
+                        </a>
+                        <div class="game-title">91CLUB</div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+
+<!--------------------------------------------modal start---------------------------------------------------------->
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1"role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content glowing-modal">
+                    <div class="modal-header login-head">
+                        <h5 class="modal-title login-title"
+                            id="exampleModalLongTitle">Notice</h5>
+                    </div>
+                    <div class="modal-body login-body">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <p class="glowing-text">
+                                    You only need a smartphone to quickly share
+                                    your link with more friends, spread it
+                                    virally, build a large team, invest zero per
+                                    day, and earn more referral rewards.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-footer p-0 ">
+                            <button type="button"
+                                class="btn ok-btn glowing-button"
+                                data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--------------------------------------------modal end---------------------------------------------------------->
+
+    <script>
+            // Matrix Animation Script
+     const canvas = document.createElement('canvas');
+     const ctx = canvas.getContext('2d');
+     const matrixContainer = document.getElementById('matrix');
+     matrixContainer.appendChild(canvas);
+     
+     // Resize canvas to fill the window dynamically
+     function resizeCanvas() {
+         canvas.width = window.innerWidth;
+         canvas.height = window.innerHeight;
+     }
+     
+     resizeCanvas(); // Initial setup
+     window.addEventListener('resize', resizeCanvas); // Update on window resize
+     
+     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+     const fontSize = 16; // Increase for better visibility on larger screens
+     const columns = Math.floor(canvas.width / fontSize);
+     const drops = Array(columns).fill(1);
+     
+     function drawMatrix() {
+         ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+         ctx.fillRect(0, 0, canvas.width, canvas.height);
+     
+         ctx.fillStyle = '#0F0';
+         ctx.font = `${fontSize}px monospace`;
+     
+         drops.forEach((drop, index) => {
+             const text = characters.charAt(Math.floor(Math.random() * characters.length));
+             const x = index * fontSize;
+             const y = drop * fontSize;
+     
+             ctx.fillText(text, x, y);
+     
+             if (y > canvas.height && Math.random() > 0.975) {
+                 drops[index] = 0;
+             }
+             drops[index]++;
+         });
+     }
+     
+     setInterval(drawMatrix, 35);
+     
+   </script>
+
+    </body>
+</html>
