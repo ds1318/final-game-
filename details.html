@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>91 Club Hack</title>
+        <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet"
+            href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- Marquee Section -->
+            <marquee class="marquee">Online Users: 4198 | User: 959***634 | Win:
+                74052</marquee>
+
+            <!-- App Logo -->
+            <div class="app-logo text-center">
+                <img src="img/dhan365.png" alt="91 Club">
+            </div>
+
+            <!-- Show Percentage -->
+            <div class="row">
+                <div class="col-6" style="color:  #00ff00;">Show
+                    Percentage:</div>
+                <div class="col-6 text-right">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="percentage">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Server Status -->
+            <div class="row mt-3">
+                <div class="col-6" style="color:  #00ff00;">Server:</div>
+                <div class="col-6 text-right">
+                    <span>Connected</span>
+                    <i class="fa fa-check-circle"></i>
+                </div>
+            </div>
+
+            <!-- Period Input -->
+            <div class="row mt-4">
+                <div class="col-6 text-left" style="color:  #00ff00;">Period
+                    Number:</div>
+                <div class="col-6">
+                    <div class="period-input-container">
+                        <input type="text" id="period" class="period-input"
+                            placeholder="Enter Period..."
+                            oninput="checkInput()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <button class="start-btn" onclick="startProcess()">START</button>
+
+            <!-- Result -->
+            <div class="row result" id="result">
+                <div class="col-12">
+                    <div class="row">
+                        <div
+                            class="col-xl-6 col-md-12   col-sm-12 text-left mb-2"
+                            style="color:  #00ff00;">
+                            Result: <span id="result-text"></span>
+                        </div>
+                        <div class="col-xl-6 col-md-12  col-sm-12  "
+                            style="color:  #00ff00;">
+                            Percentage: <span id="percentage-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row message mb-3 mt-4 text-center text-light">
+                <div class="col-12">
+                    <p>Create a new 91Club account by clicking on "Register"
+                        below. To use this mod, please use this account. The mod
+                        will not work on other accounts.</p>
+                </div>
+            </div>
+
+            <!-- Register Button -->
+            <div class="row">
+                <div class="col-12">
+                    <button
+                        class="glow-button btn w-100">Register</button>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script>
+        function checkInput() {
+            const inputField = document.getElementById("period");
+            const startButton = document.querySelector(".start-btn");
+            startButton.style.display = inputField.value.trim() ? "block" : "none";
+        }
+
+        function startProcess() {
+            const result = document.getElementById("result");
+            const resultText = document.getElementById("result-text");
+            const percentageText = document.getElementById("percentage-text");
+            
+
+            const outcome = Math.random() > 0.5 ? "Big" : "Small";
+            const percentage = Math.floor(Math.random() * 31) + 70;
+
+            resultText.textContent = outcome;
+            percentageText.textContent = `${percentage}%`;
+            result.style.display = "block";
+            message.style.display = "block";
+        }
+    </script>
+    </body>
+</html>
